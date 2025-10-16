@@ -15,7 +15,7 @@ from app.core.config import setting
 from app.services.grok.statsig import get_dynamic_headers
 
 # 常量定义
-RATE_LIMIT_ENDPOINT = "https://grok.com/rest/rate-limits"
+RATE_LIMIT_ENDPOINT = f"{setting.grok_config.get('grok_base_url', 'https://grok.com').rstrip('/')}/rest/rate-limits"
 REQUEST_TIMEOUT = 30
 IMPERSONATE_BROWSER = "chrome133a"
 MAX_FAILURE_COUNT = 3

@@ -53,9 +53,9 @@ class CacheService:
                 logger.debug(f"[{self.cache_type.upper()}Cache] 使用代理: {proxy_url.split('@')[-1] if '@' in proxy_url else proxy_url}")
 
             async with AsyncSession() as session:
-                logger.debug(f"[{self.cache_type.upper()}Cache] 开始下载: https://assets.grok.com{file_path}")
+                logger.debug(f"[{self.cache_type.upper()}Cache] 开始下载: {setting.grok_config.get('grok_assets_base_url', 'https://assets.grok.com').rstrip('/')}{file_path}")
                 response = await session.get(
-                    f"https://assets.grok.com{file_path}",
+                    f"{setting.grok_config.get('grok_assets_base_url', 'https://assets.grok.com').rstrip('/')}{file_path}",
                     headers=headers,
                     proxies=proxies,
                     timeout=timeout,

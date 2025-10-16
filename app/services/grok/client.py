@@ -16,7 +16,7 @@ from app.services.grok.upload import ImageUploadManager
 from app.core.exception import GrokApiException
 
 # 常量定义
-GROK_API_ENDPOINT = "https://grok.com/rest/app-chat/conversations/new"
+GROK_API_ENDPOINT = f"{setting.grok_config.get('grok_base_url', 'https://grok.com').rstrip('/')}/rest/app-chat/conversations/new"
 REQUEST_TIMEOUT = 120
 IMPERSONATE_BROWSER = "chrome133a"
 

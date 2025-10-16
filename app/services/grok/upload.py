@@ -13,7 +13,7 @@ from app.core.config import setting
 from app.core.logger import logger
 
 # 常量定义
-UPLOAD_ENDPOINT = "https://grok.com/rest/app-chat/upload-file"
+UPLOAD_ENDPOINT = f"{setting.grok_config.get('grok_base_url', 'https://grok.com').rstrip('/')}/rest/app-chat/upload-file"
 REQUEST_TIMEOUT = 30
 IMPERSONATE_BROWSER = "chrome133a"
 DEFAULT_MIME_TYPE = "image/jpeg"

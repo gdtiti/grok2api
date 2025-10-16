@@ -186,8 +186,8 @@ class GrokClient:
             return await GrokClient._process_response(response, auth_token, model, stream)
 
         except curl_requests.RequestsError as e:
-            logger.error(f"[Client] 网络请求错误: {e}")
-            raise GrokApiException(f"网络错误: {e}", "NETWORK_ERROR") from e
+            logger.error(f"[Client] 网络请求错误 {GROK_API_ENDPOINT}:  {e} ")
+            raise GrokApiException(f"网络错误 {GROK_API_ENDPOINT} : {e}", "NETWORK_ERROR") from e
         except json.JSONDecodeError as e:
             logger.error(f"[Client] JSON解析错误: {e}")
             raise GrokApiException(f"JSON解析错误: {e}", "JSON_ERROR") from e
